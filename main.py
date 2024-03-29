@@ -35,11 +35,11 @@ def scrapeJobs():
     dates = [elem.text for elem in date_elems]
     companies = [elem.text for elem in company_elems]
 
-    target_job_title = "Website Project Manager"
+    # target_job_title = "Website Project Manager"
     
     for job, date, company in zip(jobs, dates, companies):
-        if job == target_job_title:
-            print(f">>> Job: {color.YELLOW}{job}{color.END} - {company}\n>>> Date: {date}\n")
+        if re.search(r'project manager|program manager', job, re.IGNORECASE):
+            print(f">>> Job: {color.GREEN}{job}{color.END} - {company}\n>>> Date: {date}\n")
         else:
             print(f">>> Job: {job} - {company}\n>>> Date: {date}\n")
     print('---------------------------------')
@@ -55,7 +55,7 @@ def main():
     scrapeJobs()
     advancePage()
     scrapeJobs()
-    input("Press any key to advance...") 
+    input("Press any key to close...") 
     driver.quit()
 
 main()
