@@ -46,7 +46,7 @@ Python and Selenium program to scrape the Silicon Forest Jobs page and display o
 ## Setup/Installation Requirements:
 ### Run Locally:
 1. Clone this repository to a local machine with Python. Install Selenium module
-2. Set targeted job title on line 35
+2. Set targeted job title on line 39 using Python Regex formatting
 3. Run using terminal
 4. Results are printed to the console
 
