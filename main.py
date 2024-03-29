@@ -27,7 +27,7 @@ def openSite():
     driver.get('https://www.thesiliconforest.com/oregon-tech-jobs')
 
 def scrapeJobs():
-    print('---------------------------------')
+    print('-----------------RESULTS:-----------------')
     job_elems = driver.find_elements(By.CLASS_NAME, 'job-card-title')
     date_elems = driver.find_elements(By.CLASS_NAME, 'job-card-date')
     company_elems = driver.find_elements(By.CLASS_NAME, 'job-card-company-name')
@@ -42,7 +42,7 @@ def scrapeJobs():
             print(f">>> Job: {color.GREEN}{job}{color.END} - {company}\n>>> Date: {date}\n")
         else:
             print(f">>> Job: {job} - {company}\n>>> Date: {date}\n")
-    print('---------------------------------')
+    print('------------------------------------------')
     
 
 def advancePage():
