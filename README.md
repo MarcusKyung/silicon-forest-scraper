@@ -51,7 +51,7 @@ Python and Selenium program to scrape the Silicon Forest Jobs page and display o
 4. Results are printed to the console
 
 ## Known Bugs:
-- Program only scrapes first page of results
+- Pagination works, but only displays two pages. Future plans include updating pagination feature to scan dates to go back at least two weeks
 
 ## Contact:
 _For questions, comments, or concerns please reach out at Kyungmj@gmail.com_
