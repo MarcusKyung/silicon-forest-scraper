@@ -19,7 +19,7 @@ class color:
     END = '\033[0m'
 
 options = webdriver.ChromeOptions()
-options.add_argument("--headless=new")
+options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 positionsList = []
 
@@ -34,16 +34,12 @@ def scrapeJobs():
     jobs = [elem.text for elem in job_elems]
     dates = [elem.text for elem in date_elems]
     companies = [elem.text for elem in company_elems]
-
-    # target_job_title = "Website Project Manager"
     
     for job, date, company in zip(jobs, dates, companies):
         if re.search(r'project manager|program manager', job, re.IGNORECASE):
             print(f">>> Job: {color.GREEN}{job}{color.END} - {company}\n>>> Date: {date}\n")
         else:
             print(f">>> Job: {job} - {company}\n>>> Date: {date}\n")
-    print('------------------------------------------')
-    
 
 def advancePage():
     nextButton = driver.find_element(By.XPATH, '/html/body/div/section/div/div[3]/div/div[2]/a[2]')
@@ -55,6 +51,7 @@ def main():
     scrapeJobs()
     advancePage()
     scrapeJobs()
+    print('------------------------------------------')
     input("Press any key to close...") 
     driver.quit()
 
